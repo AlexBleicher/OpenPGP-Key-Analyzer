@@ -1,0 +1,15 @@
+cffi==1.17.1
+coloredlogs==15.0.1
+cryptography==44.0.0
+future==1.0.0
+gmpy2==2.2.1
+humanfriendly==10.0
+pgpdump==1.5
+PGPy==0.6.0
+pyasn1==0.6.1
+pycparser==2.22
+pyreadline3==3.5.4
+python-dateutil==2.9.0.post0
+roca-detect==1.2.12
+setuptools==75.8.0
+six==1.17.0
