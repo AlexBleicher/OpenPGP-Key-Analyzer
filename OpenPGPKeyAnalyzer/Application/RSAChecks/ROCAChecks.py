@@ -1,8 +1,11 @@
 #Usage of ROCA Detection Tool. Copyright (c) 2017, CRoCS, EnigmaBridge Ltd.
 
 from roca.detect import RocaFingerprinter
-from Application.Util.CreateWeaknessJSON import *
 import os
+
+from OpenPGPKeyAnalyzer.Application.Util.CreateWeaknessJSON import createWeaknessJSON
+
+
 def checkKeyForROCA(key, keyfile, foundWeaknesses):
     foundWeakness = False
     detector = RocaFingerprinter()

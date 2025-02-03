@@ -1,5 +1,6 @@
-from Application.Util.GeneralInformation import *
 import logging
+from OpenPGPKeyAnalyzer.Application.Util.GeneralInformation import *
+
 keyLifetimesNIST = {
     0: "Insecure",
     112: "Secure up to 2030",
@@ -39,6 +40,7 @@ effectiveKeyLengthsNISTECC = {
 
 logger = logging.getLogger(__name__)
 
+
 def analyzeKeyLengths(key, output, settings):
     keysize = key.key_size
     algorithm = key.key_algorithm
@@ -53,7 +55,7 @@ def analyzeKeyLengths(key, output, settings):
         effectiveKeyLengthBSI = setEffectiveKeyLength(keysize, effectiveKeyLengthsBSIECC)
         effectiveKeyLengthNIST = setEffectiveKeyLength(keysize, effectiveKeyLengthsNISTECC)
     else:
-        print("Unknown algorithm")  #TODO: Make this better
+        print("Unknown algorithm")  # TODO: Make this better
 
     bsiSecurityLevel = ""
     nistSecurityLevel = ""
@@ -82,7 +84,6 @@ def analyzeKeyLengths(key, output, settings):
     lengthInfo["NIST Security Level"] = nistSecurityLevel
     lengthInfo["Meets User Key Length Specification"] = satisfies
     output["Key Length Information"] = lengthInfo
-
 
 
 def setEffectiveKeyLength(keysize, applyingDict):

@@ -1,4 +1,5 @@
-from Application.Util.CreateWeaknessJSON import *
+from OpenPGPKeyAnalyzer.Application.Util.CreateWeaknessJSON import createWeaknessJSON
+
 
 def analyzeElGamalWeaknesses(key_info, output, settings):
     foundWeaknesses = []

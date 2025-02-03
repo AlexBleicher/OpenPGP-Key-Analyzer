@@ -1,5 +1,5 @@
 import json
-from Application.Util.GeneralInformation import *
+from OpenPGPKeyAnalyzer.Application.Util.GeneralInformation import *
 
 
 def calledSettings(arg, settingsPath):
@@ -29,9 +29,10 @@ def calledSettings(arg, settingsPath):
                     settingToChange = userInput
                     if settingToChange == "RFCVersion":
                         print("The RFC version the keys should be checked against.\nAllowed Values: " + str(
-                            possibleSettingsValuesRFC) +"\n")
+                            possibleSettingsValuesRFC) + "\n")
                     elif settingToChange == "UserSpecifiedKeyLength":
-                        print("A minimum Key length (effective length) the given key should have.\nAllowed Values: Numbers greater than 0\n")
+                        print(
+                            "A minimum Key length (effective length) the given key should have.\nAllowed Values: Numbers greater than 0\n")
                     elif settingToChange == "FermatFactoringCheckIncluded":
                         print(
                             "A given RSA Key should be checked against possible Fermat Factorization.\nAllowed Values: Booleans\n")
@@ -39,15 +40,20 @@ def calledSettings(arg, settingsPath):
                         print(
                             "A effective Key Length that should be the minimum distance between the two primes p and q of an RSA key in order to disable Fermat Factoring Attacks. This check is only applicable for secret keys.\n Allowed Values: Numbers greater than 0\n")
                     elif settingToChange == "LowPrivateExponentCheckIncluded":
-                        print("A given RSA secret Key should be checked against attacks using small private exponents like Wieners attack.\nAllowed Values: Booleans\n")
+                        print(
+                            "A given RSA secret Key should be checked against attacks using small private exponents like Wieners attack.\nAllowed Values: Booleans\n")
                     elif settingToChange == "LowPrivateExponentBound":
-                        print("The possible Bounds to check the private exponent against.\nAllowed Values: " + str(possibleSettingsBoundsLowPrivateExponentRSA) + "\n")
+                        print("The possible Bounds to check the private exponent against.\nAllowed Values: " + str(
+                            possibleSettingsBoundsLowPrivateExponentRSA) + "\n")
                     elif settingToChange == "LowPublicExponentCheckIncluded":
-                        print("A given RSA Key should be checked if the public exponent is low. This would enable some attacks like calculating back to the original message from sending multiple ciphers with the same message to different recipients and using the chinese remainder theorem on them.\nAllowed Values: Booleans\n")
+                        print(
+                            "A given RSA Key should be checked if the public exponent is low. This would enable some attacks like calculating back to the original message from sending multiple ciphers with the same message to different recipients and using the chinese remainder theorem on them.\nAllowed Values: Booleans\n")
                     elif settingToChange == "LowPublicExponentBound":
-                        print("The minimum value a RSA public Exponent should have.\nAllowed Values: Numbers greater than 3")
+                        print(
+                            "The minimum value a RSA public Exponent should have.\nAllowed Values: Numbers greater than 3")
                     elif settingToChange == "ROCACheckIncluded":
-                        print("A given RSA Key shoult be checked for the ROCA vulnerability.\nAllowed Values: Booleans\n")
+                        print(
+                            "A given RSA Key shoult be checked for the ROCA vulnerability.\nAllowed Values: Booleans\n")
                     try:
                         print("Please enter the value you want to change the setting to.\n")
                         userInput = input()
@@ -65,7 +71,7 @@ def calledSettings(arg, settingsPath):
                                 raise Exception
                         elif settingToChange == "LowPublicExponentBound":
                             userInput = int(userInput)
-                            if userInput<=3:
+                            if userInput <= 3:
                                 raise Exception
                         elif settingToChange == "FermatFactoringCheckIncluded" or settingToChange == "LowPrivateExponentCheckIncluded" or settingToChange == "LowPublicExponentCheckIncluded" or settingToChange == "ROCACheckIncluded":
                             if userInput.lower() == "false":

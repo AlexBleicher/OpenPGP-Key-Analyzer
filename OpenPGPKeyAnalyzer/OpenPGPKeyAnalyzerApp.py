@@ -1,20 +1,21 @@
 import cmd
+import os
 import warnings
 from time import sleep
 
-from Application.DSAChecks.DSAAnalyzer import *
-from Application.ECCChecks.ECCAnalyzer import *
-from Application.ElGamalChecks.ElGamalAnalyzer import *
-from Application.GeneralChecks.DeprecatedKeyVersionCheck import *
-from Application.GeneralChecks.KeyLengthAnalyzer import *
-from Application.KeyParser import *
-from Application.RSAChecks.RSAAnalyzer import *
-from Application.Settings.AlterSettings import *
+from OpenPGPKeyAnalyzer.Application.DSAChecks.DSAAnalyzer import *
+from OpenPGPKeyAnalyzer.Application.ECCChecks.ECCAnalyzer import *
+from OpenPGPKeyAnalyzer.Application.ElGamalChecks.ElGamalAnalyzer import *
+from OpenPGPKeyAnalyzer.Application.GeneralChecks.DeprecatedKeyVersionCheck import *
+from OpenPGPKeyAnalyzer.Application.GeneralChecks.KeyLengthAnalyzer import *
+from OpenPGPKeyAnalyzer.Application.KeyParser import *
+from OpenPGPKeyAnalyzer.Application.RSAChecks.RSAAnalyzer import *
+from OpenPGPKeyAnalyzer.Application.Settings.AlterSettings import *
 
 warnings.filterwarnings("ignore")
 
 
-class MyApp(cmd.Cmd):
+class OpenPGPKeyAnalyzerApp(cmd.Cmd):
     prompt = '>>'
     intro = "Welcome to the OpenPGP Key Analyzer. Type help or ? to list commands."
 
@@ -135,13 +136,20 @@ class MyApp(cmd.Cmd):
     def do_settings(self, arg):
         """Display and alter Settings for Vulnerability Checks"""
         calledSettings(input, self.settingsPath)
-        self.settings = json.load(open('Application/Settings/settings.json'))
+        self.settings = json.load(open(self.settingsPath))
 
     def do_quit(self, arg):
         """Exit the CLI."""
         print("Goodbye")
         return True
 
+def main():
+    path = os.path.join(os.getcwd(), "settings.json")
+    if not os.path.exists(path):
+        print("Warning! No settings for the application existed. settings.json file will be created in current directory with default values")
+        settings = {"RFCVersion": "RFC4880", "UserSpecifiedKeyLength": -1, "FermatFactoringCheckIncluded": True, "FermatFactoringEffectiveLengthToCheck": 120, "LowPrivateExponentCheckIncluded": True, "LowPrivateExponentBound": "Estimated Bound", "LowPublicExponentCheckIncluded": True, "LowPublicExponentBound": 65537, "ROCACheckIncluded": True}
+        json.dump(settings, open(path, 'w'))
+    OpenPGPKeyAnalyzerApp(path).cmdloop()
 
 if __name__ == '__main__':
-    MyApp("Application/Settings/settings.json").cmdloop()
+    OpenPGPKeyAnalyzerApp("Application/Settings/settings.json").cmdloop()

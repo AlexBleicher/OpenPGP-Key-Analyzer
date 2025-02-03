@@ -1,8 +1,8 @@
-from Application.RSAChecks.FermatFactoringChecks import *
-from Application.RSAChecks.LowPrivateExponentRSAChecks import *
-from Application.RSAChecks.LowPublicExponentRSACheck import *
-from Application.RSAChecks.ROCAChecks import *
-from Application.Util.CreateWeaknessJSON import *
+from OpenPGPKeyAnalyzer.Application.RSAChecks.FermatFactoringChecks import *
+from OpenPGPKeyAnalyzer.Application.RSAChecks.LowPrivateExponentRSAChecks import *
+from OpenPGPKeyAnalyzer.Application.RSAChecks.LowPublicExponentRSACheck import *
+from OpenPGPKeyAnalyzer.Application.RSAChecks.ROCAChecks import *
+from OpenPGPKeyAnalyzer.Application.Util.CreateWeaknessJSON import *
 import logging
 logger = logging.getLogger(__name__)
 def analyzeRSAWeaknesses(key_info, keyfile, output, settings):

@@ -1,6 +1,6 @@
 import gmpy2
-from Application.Util.CreateWeaknessJSON import *
 import logging
+from OpenPGPKeyAnalyzer.Application.Util.CreateWeaknessJSON import createWeaknessJSON
 
 logger = logging.getLogger(__name__)
 def checkForLowPrivateExponent(key, foundWeaknesses, passphrase, settings):

@@ -1,0 +1,40 @@
+[project]
+name = "OpenPGPKeyAnalyzer"
+version = "0.1.10"
+readme = "README.md"
+license = {text = "MIT"}
+description = "Check OpenPGP Key files for known cryptographic vulnerabilities"
+authors = [{name = "Alexander Bleicher"}]
+keywords = ["security", "cryptography", "OpenPGP"]
+requires-python = ">=3.12"
+dependencies = [
+    "cffi",
+    "coloredlogs",
+    "cryptography",
+    "future",
+    "gmpy2",
+    "humanfriendly",
+    "pgpdump",
+    "pgpy",
+    "pyasn1",
+    "pycparser",
+    "pyreadline3",
+    "python-dateutil",
+    "roca-detect",
+    "setuptools",
+    "six"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Repository = "https://github.com/AlexBleicher/OpenPGP-Key-Analyzer"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+openpgp-analyze = "OpenPGPKeyAnalyzer.OpenPGPKeyAnalyzerApp:main"

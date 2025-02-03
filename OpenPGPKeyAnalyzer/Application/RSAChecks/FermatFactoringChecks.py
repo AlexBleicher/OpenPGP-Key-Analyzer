@@ -1,8 +1,7 @@
 # Copyright for code under fermatFactoringCheckPublicKey(). Original source: Badkeys by Hanno Böck. Copyright (c) Hanno Böck
 import gmpy2
-
-from Application.Util.CreateWeaknessJSON import *
 import logging
+from OpenPGPKeyAnalyzer.Application.Util.CreateWeaknessJSON import createWeaknessJSON
 
 logger = logging.getLogger(__name__)
 

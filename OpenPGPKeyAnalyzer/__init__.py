@@ -1,0 +1,1 @@
+from OpenPGPKeyAnalyzer.Application import *

@@ -2,11 +2,11 @@ import unittest
 
 from pgpy import PGPKey
 
-from Application.GeneralChecks.KeyLengthAnalyzer import *
-from Application.RSAChecks.FermatFactoringChecks import *
-from Application.RSAChecks.LowPrivateExponentRSAChecks import *
-from Application.RSAChecks.LowPublicExponentRSACheck import *
-from Application.RSAChecks.ROCAChecks import *
+from OpenPGPKeyAnalyzer.Application.GeneralChecks.KeyLengthAnalyzer import *
+from OpenPGPKeyAnalyzer.Application.RSAChecks.FermatFactoringChecks import *
+from OpenPGPKeyAnalyzer.Application.RSAChecks.LowPrivateExponentRSAChecks import *
+from OpenPGPKeyAnalyzer.Application.RSAChecks.LowPublicExponentRSACheck import *
+from OpenPGPKeyAnalyzer.Application.RSAChecks.ROCAChecks import *
 
 
 class TestClass(unittest.TestCase):
@@ -55,7 +55,7 @@ class TestClass(unittest.TestCase):
         self.assertEqual(expectedOutput, actualOutput)
 
     def test_ROCAWeakness(self):
-        key = str(PGPKey.from_file('./Testkeys/KeysFromROCA/key04.pgp')[0])
+        key = str(PGPKey.from_file('Testkeys/KeysFromROCA/key04.pgp')[0])
         filepath = os.path.abspath('./Testkeys/KeysFromROCA/key04.pgp')
         expectedOutput = []
         weakness = {}
