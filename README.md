@@ -5,6 +5,7 @@ An Open Source Python CLI, which can parse keyfiles conforming to the OpenPGP st
 The Analyzer supports OpenPGP Key Files in ASCII-armored or Binary Format.<br>
 Both [RFC 4880](https://www.rfc-editor.org/rfc/rfc4880.html) and [RFC 9580](https://www.rfc-editor.org/rfc/rfc9580.html) are supported.
 
+:warning: <b>If no warning is created for a given key this does not automatically make the key secure against any attack. It only indicates, that no weakness to the already implemented vulnerabilities could be detected!</b>
 ## Installation
 The OpenPGP Key Analyzer can be installed [via pip](https://pypi.org/project/OpenPGPKeyAnalyzer/) (it is encouraged to use a virtual environment):<br>
 ```pip install OpenPGPKeyAnalyzer```<br>
@@ -12,7 +13,7 @@ Alternatively you can execute the OpenPGPKeyAnalyzerApp.py file in the OpenPGPKe
 
 ## Usage
 If installed via pip: Enter the command <em>openpgp-analyze</em> in a shell wherever you installed the application to.<br>
-> :warning: ***The first time you use this command a settings.json file will be created in the same directory, in which the settings of the application are stored. This file will be read and written to by the application and can alter the workflow of evaluations. It therefore poses a potential security risk!***
+> :warning: ***The first time you use this command a settings.json file will be created in an specified directory, if no settings.json yet exists there. This file will be read and written to by the application and can alter the workflow of evaluations. It therefore poses a potential security risk!***
 
 After starting the application, a Python CLI will start. At the moment, the following commands are supportet:
 <ol>
