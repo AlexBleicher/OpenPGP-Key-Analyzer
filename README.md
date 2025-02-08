@@ -21,6 +21,7 @@ After starting the application, a Python CLI will start. At the moment, the foll
  <li><em>settings</em>: Display the current settings and possibly alter them</li>
  <li><em>analyze</em>: Enter an OpenPGP Keyfile and evaluate it for cryptographic vulnerabilities</li>
  <li><em>analyzedir</em>: Enter the path to a directory and evaluate all OpenPGP Keyfiles in it. Only Keyfiles on the top level of the directory will be evaluated. No recursive check in subdirectories is currently implemented</li>
+ <li><em>sources</em>: Prints the sources for implemented vulnerabilities onto the command line.</li>
 </ol>
 
 ## Implemented Checks
