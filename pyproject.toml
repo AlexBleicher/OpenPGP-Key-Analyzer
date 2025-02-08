@@ -1,6 +1,6 @@
 [project]
 name = "OpenPGPKeyAnalyzer"
-version = "0.1.10"
+version = "0.1.11"
 readme = "README.md"
 license = {text = "MIT"}
 description = "Check OpenPGP Key files for known cryptographic vulnerabilities"

@@ -11,6 +11,7 @@ from OpenPGPKeyAnalyzer.Application.GeneralChecks.KeyLengthAnalyzer import *
 from OpenPGPKeyAnalyzer.Application.KeyParser import *
 from OpenPGPKeyAnalyzer.Application.RSAChecks.RSAAnalyzer import *
 from OpenPGPKeyAnalyzer.Application.Settings.AlterSettings import *
+from OpenPGPKeyAnalyzer.Application.Util.GeneralInformation import *
 
 warnings.filterwarnings("ignore")
 
@@ -132,6 +133,13 @@ class OpenPGPKeyAnalyzerApp(cmd.Cmd):
                 print("Analysis failed. No parseable key was found.")
         except Exception as e:
             print("Exception occured: " + str(e))
+
+    def do_sources(self, arg):
+        """Display the sources for implemented vulnerabilities"""
+        for source in sources:
+            print("---------------------------------------------------------------")
+            print(source["name"]+ ":")
+            print(source["source"])
 
     def do_settings(self, arg):
         """Display and alter Settings for Vulnerability Checks"""
