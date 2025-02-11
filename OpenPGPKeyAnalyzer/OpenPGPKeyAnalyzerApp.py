@@ -37,6 +37,12 @@ class OpenPGPKeyAnalyzerApp(cmd.Cmd):
             analyzeECCKWeaknesses(key_info, output, self.settings)
         elif key_info["algorithm"] in DSAAlgorithmIDs:
             analyzeDSAWeaknesses(key_info, output, self.settings)
+        elif key_info["algorithm"] in ElGamalSignatureID:
+            logger.warning("Deprecated Algorithm used. Elgamal Signature Algorithm deprecated since RFC 4880")
+            output["Algorithm Specific Weaknesses"] = [].append(
+                createWeaknessJSON("Deprecated Algorithm used.",
+                                   "The Elgamal Signature Algorithm deprecated since RFC 4880 due to an vulnerability discovered by Bleichenbacher.",
+                                   "Usage of another algorithm (ECC is recommended)."))
         else:
             logger.warning("Unknown algorithm: " + key_info["algorithm"])
             output["Algorithm Specific Weaknesses"] = [].append(
