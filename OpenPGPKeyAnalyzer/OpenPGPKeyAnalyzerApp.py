@@ -83,7 +83,9 @@ class OpenPGPKeyAnalyzerApp(cmd.Cmd):
                 writeOutput = False
                 while not writeOutput:
                     outputDir = input("Please enter the directory to save the output files: ").strip()
-                    path = os.path.join(outputDir, "output.json")
+                    outputName = input("Please specify the name of the outputfile: ").strip()
+                    outputName += ".json"
+                    path = os.path.join(outputDir, outputName)
                     if os.path.exists(path):
                         print("Warning: Output file already exists, will overwrite it. Continue anyway (yes/no)? ")
                         userInput = input().strip()
@@ -121,7 +123,9 @@ class OpenPGPKeyAnalyzerApp(cmd.Cmd):
                 writeOutput = False
                 while not writeOutput:
                     outputDir = input("Please enter the directory to save the output files: ").strip()
-                    path = os.path.join(outputDir, "output.json")
+                    outputName = input("Please specify the name of the outputfile: ").strip()
+                    outputName += ".json"
+                    path = os.path.join(outputDir, outputName)
                     if os.path.exists(path):
                         print("Warning: Output file already exists, will overwrite it. Continue anyway (yes/no)? ")
                         userInput = input().strip()

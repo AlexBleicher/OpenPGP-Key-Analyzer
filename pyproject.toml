@@ -1,6 +1,6 @@
 [project]
 name = "OpenPGPKeyAnalyzer"
-version = "0.1.12"
+version = "0.1.13"
 readme = "README.md"
 license = {text = "MIT"}
 description = "Check OpenPGP Key files for known cryptographic vulnerabilities"
@@ -15,7 +15,7 @@ dependencies = [
     "gmpy2",
     "humanfriendly",
     "pgpdump",
-    "pgpy",op
+    "pgpy",
     "pyasn1",
     "pycparser",
     "pyreadline3",
