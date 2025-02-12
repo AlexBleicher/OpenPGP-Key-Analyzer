@@ -16,7 +16,7 @@ from OpenPGPKeyAnalyzer.Application.Util.GeneralInformation import *
 warnings.filterwarnings("ignore")
 
 
-class OpenPGPKeyAnalyzerApp(cmd.Cmd):
+class MainApp(cmd.Cmd):
     prompt = '>>'
     intro = "Welcome to the OpenPGP Key Analyzer. Type help or ? to list commands."
 
@@ -167,7 +167,7 @@ def main():
         print("Warning! No settings for the application existed. settings.json file will be created in current directory with default values")
         settings = {"RFCVersion": "RFC4880", "UserSpecifiedKeyLength": -1, "FermatFactoringCheckIncluded": True, "FermatFactoringEffectiveLengthToCheck": 120, "LowPrivateExponentCheckIncluded": True, "LowPrivateExponentBound": "Estimated Bound", "LowPublicExponentCheckIncluded": True, "LowPublicExponentBound": 65537, "ROCACheckIncluded": True}
         json.dump(settings, open(path, 'w'))
-    OpenPGPKeyAnalyzerApp(path).cmdloop()
+    MainApp(path).cmdloop()
 
 if __name__ == '__main__':
-    OpenPGPKeyAnalyzerApp("Application/Settings/settings.json").cmdloop()
+    MainApp("Application/Settings/settings.json").cmdloop()
