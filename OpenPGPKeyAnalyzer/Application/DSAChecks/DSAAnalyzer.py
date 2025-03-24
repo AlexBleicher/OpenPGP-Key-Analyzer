@@ -1,6 +1,6 @@
 import logging
 from OpenPGPKeyAnalyzer.Application.Util.CreateWeaknessJSON import createWeaknessJSON
-
+from DSAPrivateParametersCheck import *
 logger = logging.getLogger(__name__)
 def analyzeDSAWeaknesses(key_info, output, settings):
     foundWeaknesses = []
@@ -14,6 +14,10 @@ def analyzeDSAWeaknesses(key_info, output, settings):
         foundWeaknesses.append(createWeaknessJSON("Deprecated Algorithm DSA",
                                                   "The DSA Algorithm has been deprecated in RFC9580.",
                                                   "Usage of another algorithm (ECC is recommended)."))
+
+    if key_info['is_private']:
+        checkDSAPrivateParametersForLLLReduction(key_info['key'], foundWeaknesses, key_info["passphrase"])
+
     foundWeaknesses.append(createWeaknessJSON("No further checks for DSA implemented yet",
                                               "No further checks for DSA implemented yet",
                                               "No further checks for DSA implemented yet"))
