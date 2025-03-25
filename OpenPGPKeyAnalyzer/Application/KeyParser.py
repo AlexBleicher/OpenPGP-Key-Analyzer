@@ -79,5 +79,6 @@ def parseKeyInfoFromKey(key, passphrase):
         key_info["is_private"] = True
     key_info["key"] = key
     key_info["asciiArmoredData"] = str(key) #To allow ROCA checks
+    key_info["passphrase"] = passphrase
     return key_info
 

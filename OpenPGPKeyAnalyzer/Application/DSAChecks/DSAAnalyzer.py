@@ -1,6 +1,7 @@
 import logging
+
+from OpenPGPKeyAnalyzer.Application.DSAChecks.DSAPrivateParametersCheck import checkDSAPrivateParametersForLLLReduction
 from OpenPGPKeyAnalyzer.Application.Util.CreateWeaknessJSON import createWeaknessJSON
-from DSAPrivateParametersCheck import *
 logger = logging.getLogger(__name__)
 def analyzeDSAWeaknesses(key_info, output, settings):
     foundWeaknesses = []

@@ -1,3 +1,6 @@
 def checkDSAPrivateParametersForLLLReduction(key, foundWeaknesses, passphrase):
-    #TODO: Calculate bounds for alpha and betta and check if bounds satisfy the condition using q
+    with key.unlock(passphrase):
+        q = key._key.keymaterial.q
+        a = key._key.keymaterial.a
+        k = key._key.keymaterial.k
     return True
